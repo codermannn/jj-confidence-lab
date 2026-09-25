@@ -1,0 +1,18 @@
+%% Diagram source: system map for the knowledge docs.
+flowchart LR
+    H[Host shell]
+    L[./lab wrapper]
+    C[Compose]
+    I[Lab image\nPython + Git + jj]
+    P[Forgejo image]
+    D[(lab-data\n/lab)]
+    F[(forge-data\n/var/lib/gitea)]
+    U[Browser\nlocalhost:3080]
+
+    H --> L --> C
+    C --> I
+    C --> P
+    I <--> D
+    P <--> F
+    U --> P
+    I -. forge-lab network .-> P

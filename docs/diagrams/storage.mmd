@@ -1,0 +1,16 @@
+%% Diagram source: storage for the knowledge docs.
+flowchart TB
+    subgraph Source[Repository checkout]
+        S[Dockerfiles\nPython source\nscenario definitions]
+    end
+    subgraph Runtime[Docker runtime]
+        L[lab container\n/lab]
+        G[Forgejo container\n/var/lib/gitea]
+        LD[(lab-data)]
+        FD[(forge-data)]
+    end
+    S -->|COPY . . at image build| L
+    L <--> LD
+    G <--> FD
+    LD --> E[fixtures\nruns\nevidence\nresearch]
+    FD --> R[users\nrepositories\nPRs\nreviews]

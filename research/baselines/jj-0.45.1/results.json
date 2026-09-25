@@ -1,0 +1,1490 @@
+[
+  {
+    "name": "add-add",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "bookmark",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "conflicted bookmark push rejected",
+        "passed": true
+      },
+      {
+        "name": "explicit target resolves bookmark",
+        "passed": true
+      },
+      {
+        "name": "main bookmark conflicted",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": "Reference conflict, not a file conflict"
+    }
+  },
+  {
+    "name": "context-switch",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "independent logical changes",
+        "passed": true
+      },
+      {
+        "name": "payment Git object exists",
+        "passed": true
+      },
+      {
+        "name": "no Git stash",
+        "passed": true
+      },
+      {
+        "name": "change remains locatable",
+        "passed": true
+      },
+      {
+        "name": "file payment.txt",
+        "passed": true
+      },
+      {
+        "name": "Git HEAD detached",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "coworker",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "Bob receives ordinary commit",
+        "passed": true
+      },
+      {
+        "name": "bookmark feature",
+        "passed": true
+      },
+      {
+        "name": "remote ref refs/heads/feature",
+        "passed": true
+      },
+      {
+        "name": "local Git ref",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "descendant-rewrite",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "describe",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "detached-head",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "Git HEAD detached",
+        "passed": true
+      },
+      {
+        "name": "HEAD is parent",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "divergent",
+    "status": "PASS",
+    "classification": "VERSION_SENSITIVE",
+    "assertions": [
+      {
+        "name": "fixture converges",
+        "passed": true
+      },
+      {
+        "name": "two visible successors",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": "Experimental converge heuristics; exit success alone does not prove convergence"
+    }
+  },
+  {
+    "name": "empty-clone",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": ".jj exists",
+        "passed": true
+      },
+      {
+        "name": ".git exists",
+        "passed": true
+      },
+      {
+        "name": "Git repository",
+        "passed": true
+      },
+      {
+        "name": "working-copy revision",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "evolving-change",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "file-directory",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": false,
+      "manual_resolution_possible": false,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "file-symlink",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": false,
+      "manual_resolution_possible": false,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "forgejo-pr",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "PR points at published jj commit",
+        "passed": true
+      },
+      {
+        "name": "fetch alone preserves feature ancestry",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "same PR updated",
+        "passed": true
+      },
+      {
+        "name": "PR head follows rewrite",
+        "passed": true
+      },
+      {
+        "name": "Forgejo branch matches PR",
+        "passed": true
+      },
+      {
+        "name": "Bob approval submitted",
+        "passed": true
+      },
+      {
+        "name": "PR merged",
+        "passed": true
+      },
+      {
+        "name": "Bob receives merged payment",
+        "passed": true
+      },
+      {
+        "name": "Bob receives urgent fix",
+        "passed": true
+      },
+      {
+        "name": "working change remains locatable",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": "Forgejo models PR lifecycle, not GitHub-specific policy or UI."
+    }
+  },
+  {
+    "name": "git-index",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "file app.conf",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "staging was observed",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "git-underneath",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "object parent matches",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "identical-edit",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": ""
+    }
+  },
+  {
+    "name": "many-sided",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      },
+      {
+        "name": "three sides",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        3
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": false,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "mixed-mutation",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "operation recorded",
+        "passed": true
+      },
+      {
+        "name": "file git.txt",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "mixed-pending-merge",
+    "status": "PASS",
+    "classification": "VERSION_SENSITIVE",
+    "assertions": [
+      {
+        "name": "Git merge unresolved",
+        "passed": true
+      },
+      {
+        "name": "Git MERGE_HEAD cleared by import",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      },
+      {
+        "name": "Git text markers remain ordinary content",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": false,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": "jj import clears pending Git merge state in this fixture but snapshots Git conflict markers as ordinary content, without a jj logical conflict."
+    }
+  },
+  {
+    "name": "modify-delete",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "multiple-files",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "multiple-hunks",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "negative-control",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": ""
+    }
+  },
+  {
+    "name": "new",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "new logical identity",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "new-vs-edit",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "existing identity selected",
+        "passed": true
+      },
+      {
+        "name": "file payment.txt",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "operation-history",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "operation recorded",
+        "passed": true
+      },
+      {
+        "name": "operation description",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "partial-resolution",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      },
+      {
+        "name": "resolved hunk retained",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "push-safety",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "stale push rejected",
+        "passed": true
+      },
+      {
+        "name": "remote unchanged after rejection",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": false,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "rebase",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "remote unchanged",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "remote-update",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "local ancestry unchanged",
+        "passed": true
+      },
+      {
+        "name": "remote changed",
+        "passed": true
+      },
+      {
+        "name": "main moved",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "rename-modify",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "rename-rename",
+    "status": "PASS",
+    "classification": "EXPLORATORY",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": ""
+    }
+  },
+  {
+    "name": "separate-hunks",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": ""
+    }
+  },
+  {
+    "name": "squash",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "file parent.txt",
+        "passed": true
+      },
+      {
+        "name": "file child.txt",
+        "passed": true
+      },
+      {
+        "name": "parent rewritten",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "stacked",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "ancestor resolution clears descendant conflicts",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": true,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "text-same-line",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "undo",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "commit restored",
+        "passed": true
+      },
+      {
+        "name": "operation recorded",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "unresolved-rebase",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "rebase command completed",
+        "passed": true
+      },
+      {
+        "name": "conflict encoded in jj-specific Git headers",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      },
+      {
+        "name": "logical conflict retains two sides after rebase",
+        "passed": true
+      },
+      {
+        "name": "undo restores conflicted source",
+        "passed": true
+      },
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "parent relationship",
+        "passed": true
+      },
+      {
+        "name": "file conflict state",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": true,
+      "conflict_sides": [
+        2
+      ],
+      "can_postpone": true,
+      "can_transform_unresolved": true,
+      "resolve_applicable": true,
+      "manual_resolution_possible": true,
+      "descendants_affected": false,
+      "git_view_reliable": false,
+      "known_limitation": "Git cannot interpret jj logical conflicts"
+    }
+  },
+  {
+    "name": "working-copy",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "change ID remains stable",
+        "passed": true
+      },
+      {
+        "name": "Git commit ID rewritten",
+        "passed": true
+      },
+      {
+        "name": "file app.conf",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  },
+  {
+    "name": "workspace",
+    "status": "PASS",
+    "classification": "DOCUMENTED_AND_REPRODUCED",
+    "assertions": [
+      {
+        "name": "second workspace created",
+        "passed": true
+      },
+      {
+        "name": "two working copies",
+        "passed": true
+      }
+    ],
+    "observations": {
+      "operation_succeeds": true,
+      "conflicted_revision_created": false,
+      "conflict_sides": [],
+      "can_postpone": null,
+      "can_transform_unresolved": null,
+      "resolve_applicable": null,
+      "manual_resolution_possible": null,
+      "descendants_affected": null,
+      "git_view_reliable": null,
+      "known_limitation": null
+    }
+  }
+]

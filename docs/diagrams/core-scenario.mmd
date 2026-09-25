@@ -1,0 +1,20 @@
+%% Diagram source: core scenario for the knowledge docs.
+sequenceDiagram
+    participant User
+    participant CLI as cli.py
+    participant Engine as scenarios/base.py
+    participant Factory as repos/factory.py
+    participant VCS as real Git/jj
+    participant Evidence as evidence/recorder.py
+
+    User->>CLI: ./lab scenario run NAME
+    CLI->>Engine: resolve Scenario
+    Engine->>Factory: create topology
+    Factory->>VCS: git init / clone; jj git clone --colocate
+    Engine->>Engine: ARRANGE
+    Engine->>VCS: before snapshot
+    Engine->>VCS: ACT operation
+    Engine->>VCS: OBSERVE after snapshot
+    Engine->>Engine: ASSERT semantic invariants
+    Engine->>Evidence: REPORT command log + snapshots
+    Evidence-->>User: PASS + evidence path
