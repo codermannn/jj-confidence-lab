@@ -388,6 +388,9 @@ which check proves that the merged revision is the one a Git-only clone gets?
 
 Use the Forgejo page and recorded evidence to teach both answers back.
 
+Before deploying, follow [Selective push](docs/09-selective-push.md) to publish
+only the ready payment fix while its unfinished receipt child stays local.
+
 ## 8. Deployment: promote a known revision, not a working directory
 
 The developer has finished the payment change. Riley now treats the review

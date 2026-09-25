@@ -21,6 +21,8 @@ the runtime, storage, and source pages.
 8. [Deployment workflow](08-deployment-workflow.md) — how jj history becomes a
    reviewed, tested, promoted, and reversible release.
 
+9. [Selective push](09-selective-push.md) — publish a ready payment change while keeping unfinished work local.
+
 The Phase 2 tutorial alternates the **developer** and **release engineer**
 roles so the same graph is understood from creation through rollback.
 
