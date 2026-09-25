@@ -1,0 +1,42 @@
+services:
+  forgejo:
+    image: jj-confidence-forgejo:16.0.5
+    build:
+      context: .
+      dockerfile: Dockerfile.forgejo
+    networks: [forge-lab, forge-ui]
+    ports: ["127.0.0.1:3080:3000"]
+    volumes: ["forge-data:/var/lib/gitea"]
+    environment:
+      FORGEJO__database__DB_TYPE: sqlite3
+      FORGEJO__security__INSTALL_LOCK: "true"
+      FORGEJO__server__ROOT_URL: http://localhost:3080/
+      FORGEJO__server__HTTP_PORT: "3000"
+      FORGEJO__server__DISABLE_SSH: "true"
+      FORGEJO__service__DISABLE_REGISTRATION: "true"
+      FORGEJO__service__ENABLE_NOTIFY_MAIL: "false"
+      FORGEJO__mailer__ENABLED: "false"
+      FORGEJO__picture__DISABLE_GRAVATAR: "true"
+      FORGEJO__picture__ENABLE_FEDERATED_AVATAR: "false"
+      FORGEJO__repository__DEFAULT_BRANCH: main
+      FORGEJO__actions__ENABLED: "false"
+      FORGEJO__federation__ENABLED: "false"
+      FORGEJO__cron_0X2E_update_checker__ENABLED: "false"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000/api/healthz"]
+      interval: 2s
+      timeout: 2s
+      retries: 45
+  forge-lab:
+    image: jj-confidence-lab:local
+    networks: [forge-lab]
+    volumes: ["lab-data:/lab"]
+    environment:
+      NO_COLOR: ${NO_COLOR:-}
+networks:
+  forge-lab:
+    internal: true
+  forge-ui:
+    driver: bridge
+volumes:
+  forge-data:

@@ -1,0 +1,7 @@
+[user]
+name = "Alice"
+email = "alice@example.test"
+[ui]
+editor = "true"
+pager = "cat"
+color = "never"

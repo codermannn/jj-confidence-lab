@@ -1,0 +1,42 @@
+#!/bin/sh
+set -eu
+export COMPOSE_IGNORE_ORPHANS=true
+cd "$(dirname "$0")"
+runtime=${LAB_RUNTIME:-}
+if [ -z "$runtime" ]; then
+    if command -v docker >/dev/null 2>&1; then runtime=docker
+    elif command -v podman >/dev/null 2>&1; then runtime=podman
+    else echo 'Install Docker or Podman, start it, then run ./lab start.' >&2; exit 1
+    fi
+fi
+case "$runtime" in docker|podman) ;; *) echo 'LAB_RUNTIME must be docker or podman.' >&2; exit 1 ;; esac
+if ! "$runtime" info >/dev/null 2>&1; then
+    echo "Start $runtime, then run ./lab start (or set LAB_RUNTIME=podman)." >&2; exit 1
+fi
+if ! "$runtime" compose version >/dev/null 2>&1; then
+    echo "Install the Compose provider for $runtime, then run ./lab start." >&2; exit 1
+fi
+forge_compose() { "$runtime" compose -f compose.yaml -f compose.forgejo.yaml "$@"; }
+start_forgejo() {
+    forge_compose build --quiet lab forgejo
+    forge_compose up -d --wait forgejo
+    "$runtime" compose -f compose.yaml -f compose.forgejo.yaml run --rm -T forge-lab forge doctor
+}
+if [ "${1:-}" = forge ]; then
+    case "${2:-}" in
+        start) start_forgejo; exit 0 ;;
+        stop) forge_compose stop forgejo; exit 0 ;;
+    esac
+    exec "$runtime" compose -f compose.yaml -f compose.forgejo.yaml run --rm -T forge-lab "$@"
+fi
+if [ "${1:-}" = start ]; then
+    "$runtime" compose build --quiet
+    start_forgejo
+fi
+if [ "${1:-}" = shell ]; then
+    exec "$runtime" compose run --rm --entrypoint /bin/bash lab
+fi
+if [ -t 0 ] && [ -t 1 ]; then
+    exec "$runtime" compose run --rm lab "$@"
+fi
+exec "$runtime" compose run --rm -T lab "$@"

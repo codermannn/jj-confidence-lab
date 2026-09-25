@@ -1,0 +1,60 @@
+name: Harness
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  quality:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: docker compose build
+      - run: docker compose run --rm -T --entrypoint uv lab run --locked ruff format --check .
+      - run: docker compose run --rm -T --entrypoint uv lab run --locked ruff check .
+      - run: docker compose run --rm -T --entrypoint shellcheck lab lab containers/forgejo-init.sh
+  harness-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: ./lab start
+      - run: ./lab doctor
+      - run: docker compose run --rm -T --entrypoint uv lab run --locked pytest -q tests/unit tests/integration
+      - run: ./lab reset --all
+  scenario-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: docker compose build
+      - run: docker compose run --rm -T --entrypoint uv lab run --locked pytest -q tests/scenarios
+      - run: ./lab scenario verify
+      - run: ./lab behavior report
+      - name: Export evidence even after failure
+        if: always()
+        run: |
+          mkdir -p artifacts
+          docker compose run --rm -T --entrypoint tar lab -C /lab -czf - artifacts > artifacts/evidence.tar.gz
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: laboratory-evidence
+          path: artifacts/evidence.tar.gz
+
+  forgejo-tests:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - run: ./lab forge start
+      - run: ./lab forge run
+      - name: Export hosted experiment evidence
+        if: always()
+        run: |
+          mkdir -p artifacts
+          docker compose run --rm -T --entrypoint tar lab -C /lab -czf - artifacts > artifacts/forgejo-evidence.tar.gz
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: forgejo-evidence
+          path: artifacts/forgejo-evidence.tar.gz
+      - if: always()
+        run: ./lab forge stop

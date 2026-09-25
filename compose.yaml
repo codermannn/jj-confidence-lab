@@ -1,0 +1,13 @@
+services:
+  lab:
+    image: jj-confidence-lab:local
+    build: .
+    network_mode: none
+    stdin_open: true
+    tty: true
+    volumes:
+      - lab-data:/lab
+    environment:
+      NO_COLOR: ${NO_COLOR:-}
+volumes:
+  lab-data:

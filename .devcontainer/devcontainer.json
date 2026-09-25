@@ -1,0 +1,7 @@
+{
+    "name": "jj-confidence-lab",
+    "dockerComposeFile": "../compose.yaml",
+    "service": "lab",
+    "workspaceFolder": "/opt/lab",
+    "overrideCommand": true
+}
