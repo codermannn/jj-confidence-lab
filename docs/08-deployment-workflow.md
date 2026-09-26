@@ -19,7 +19,7 @@ flowchart LR
     A --> S[Staging]
     S --> P[Production]
     P --> O[Observe and rollback]
-    O -->|bad release| B[Move release bookmark back]
+    O -->|bad release| B[Redeploy known-good artifact]
     B --> A
 ```
 
@@ -95,7 +95,7 @@ from a moving working copy.
 | Sync before release | `jj git fetch`; inspect `jj log`; rebase | Import remote state before promotion |
 | Publish review state | `jj bookmark set feature -r <change>`; `jj git push` | Forgejo sees a stable Git ref |
 | Name a release | `jj tag set v1.2.3 -r <release-change>` | Make the deployed revision addressable |
-| Roll back | Move the release bookmark or tag to the last known-good change and push | Rollback is a graph/ref decision |
+| Roll back | Promote a previous known-good artifact through an audited deployment change | Keep issued release tags fixed; jj undo does not undo a deployment |
 | Recover a local mistake | `jj op log`, then `jj undo` or `jj op restore` | Restore before redeploying |
 
 The pinned Forgejo compose file disables Forgejo Actions. The repository's

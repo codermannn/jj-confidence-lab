@@ -3,6 +3,10 @@
 Phase 3 is a repeatable confidence check for a team considering jj alongside
 Git hosting. It does not claim that Forgejo behavior is identical to GitHub.
 
+Before validating adoption, follow [Enterprise workflows](docs/enterprise/README.md).
+Choose a policy, compare the Git and jj command lanes, and test the host-specific
+requirements your team depends on.
+
 ## 1. Reproduce the supported environment
 
 ```sh

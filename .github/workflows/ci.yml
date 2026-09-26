@@ -38,6 +38,8 @@ jobs:
       - uses: ./.github/actions/jj-checkout
       - run: docker compose run --rm -T --entrypoint uv lab run --locked pytest -q tests/scenarios
       - run: ./lab scenario verify
+      # Execute the published Git and jj enterprise tutorial blocks.
+      - run: docker compose run --rm -T --entrypoint python lab scripts/verify-enterprise.py
       - run: ./lab behavior report
       - name: Export evidence even after failure
         if: always()

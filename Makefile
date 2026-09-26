@@ -45,3 +45,8 @@ forge-stop: ## Stop Forgejo while preserving its named volume.
 
 verify: ## Run every registered core scenario.
 	$(RUN) scenario verify
+
+# Uses the same pinned image as CI; rebuild with make start after editing lessons.
+.PHONY: enterprise
+enterprise: ## Verify the executable Git and jj enterprise tutorials (Docker).
+	docker compose run --rm -T --entrypoint python lab scripts/verify-enterprise.py

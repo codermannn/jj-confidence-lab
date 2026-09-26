@@ -89,3 +89,6 @@ docker volume ls
 
 For an application with two hosts, continue with
 [Two remotes and protected CI](10-two-remotes-and-ci.md).
+
+For team policy choices, follow [Enterprise workflows](enterprise/README.md)
+and its executable Git and jj command lanes.

@@ -69,6 +69,10 @@ Do this after the Phase 2 sections. Forgejo is already started by `./lab start`.
 Open the resulting local PR at [http://localhost:3080](http://localhost:3080)
 if you want to see the same workflow in the browser.
 
+Continue with [Enterprise workflows](docs/enterprise/README.md) for paired Git/jj
+lessons on trunk-based delivery, stacked reviews, release branches, GitFlow,
+two remotes, and deployment promotion.
+
 ### 5. Confirm the complete lab — host
 
 ```sh
