@@ -1,0 +1,26 @@
+# Public histories imported into disposable, ignored workspaces.
+# Each SHA is pinned so the exercises do not change when upstream moves.
+
+[[repository]]
+name = "flask"
+source = "https://github.com/pallets/flask.git"
+commit = "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35"
+depth = 0
+edit_file = "README.md"
+language = "Python"
+
+[[repository]]
+name = "bat"
+source = "https://github.com/sharkdp/bat.git"
+commit = "4987f76709aae3a1c4db723c53874c9ddcb0c4fd"
+depth = 0
+edit_file = "README.md"
+language = "Rust"
+
+[[repository]]
+name = "github-cli"
+source = "https://github.com/cli/cli.git"
+commit = "9b031151a825bda919203c5202876a725d637368"
+depth = 0
+edit_file = "README.md"
+language = "Go"

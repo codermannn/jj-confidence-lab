@@ -50,3 +50,13 @@ verify: ## Run every registered core scenario.
 .PHONY: enterprise
 enterprise: ## Verify the executable Git and jj enterprise tutorials (Docker).
 	docker compose run --rm -T --entrypoint python lab scripts/verify-enterprise.py
+
+.PHONY: real-prepare real-list real-run
+real-prepare: ## Import pinned public histories into Alice's local Forgejo.
+	python3 scripts/real_repos.py prepare
+
+real-list: ## Show imported history, commit counts, and local-only origins.
+	python3 scripts/real_repos.py list
+
+real-run: ## Run jj stack, multi-parent, and workspace labs on real histories.
+	python3 scripts/real_repos.py run
