@@ -8,15 +8,22 @@ jobs:
   quality:
     runs-on: ubuntu-24.04
     steps:
+      # Bootstrap files; jj verifies the event revision before any tests run.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - run: docker compose build
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/jj-checkout
       - run: docker compose run --rm -T --entrypoint uv lab run --locked ruff format --check .
       - run: docker compose run --rm -T --entrypoint uv lab run --locked ruff check .
       - run: docker compose run --rm -T --entrypoint shellcheck lab lab containers/forgejo-init.sh
   harness-tests:
     runs-on: ubuntu-24.04
     steps:
+      # Bootstrap files; jj verifies the event revision before any tests run.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/jj-checkout
       - run: ./lab start
       - run: ./lab doctor
       - run: docker compose run --rm -T --entrypoint uv lab run --locked pytest -q tests/unit tests/integration
@@ -24,8 +31,11 @@ jobs:
   scenario-tests:
     runs-on: ubuntu-24.04
     steps:
+      # Bootstrap files; jj verifies the event revision before any tests run.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - run: docker compose build
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/jj-checkout
       - run: docker compose run --rm -T --entrypoint uv lab run --locked pytest -q tests/scenarios
       - run: ./lab scenario verify
       - run: ./lab behavior report
@@ -43,7 +53,11 @@ jobs:
   forgejo-tests:
     runs-on: ubuntu-24.04
     steps:
+      # Bootstrap files; jj verifies the event revision before any tests run.
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/jj-checkout
       - run: ./lab forge start
       - run: ./lab forge run
       - name: Export hosted experiment evidence

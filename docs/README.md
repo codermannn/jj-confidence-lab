@@ -86,3 +86,6 @@ If Compose chose a different project name, discover the exact volume names with:
 docker compose -f compose.yaml -f compose.forgejo.yaml config --volumes
 docker volume ls
 ```
+
+For an application with two hosts, continue with
+[Two remotes and protected CI](10-two-remotes-and-ci.md).

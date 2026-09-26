@@ -1,0 +1,25 @@
+# Bootstrap pinned jj, then verify the exact GitHub event revision with jj.
+name: Prepare jj checkout
+description: Initialize a colocated jj workspace at the exact CI revision
+runs:
+  using: composite
+  steps:
+    - name: Build pinned jj runtime
+      shell: bash
+      run: docker compose build
+    - name: Initialize and verify jj workspace
+      shell: bash
+      env:
+        EXPECTED_SHA: ${{ github.sha }}
+      run: |
+        docker compose run --rm -T \
+          -v "$GITHUB_WORKSPACE:/work" -w /work \
+          -e EXPECTED_SHA --entrypoint sh lab -eu -c '
+            # GitHub checkout supplies its event SHA, including PR merge commits.
+            jj git init --colocate .
+            jj new "$EXPECTED_SHA"
+            actual=$(jj log -r @- --no-graph -T commit_id)
+            test "$actual" = "$EXPECTED_SHA"
+            test -z "$(jj diff --summary)"
+            jj log -r "@ | @-"
+          '

@@ -88,3 +88,6 @@ remote: `--remote forgejo --bookmark payment-ready` versus
 `--remote origin --bookmark main`. Avoid `--all` when publishing selectively.
 The GitHub course repository and these generated Forgejo exercises are separate
 repositories; publishing the course does not upload the exercise volume.
+
+Next: [Two remotes and CI](10-two-remotes-and-ci.md) explains canonical main,
+automatic descendant rebasing, and independently publishing to each host.
