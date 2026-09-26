@@ -92,3 +92,7 @@ For an application with two hosts, continue with
 
 For team policy choices, follow [Enterprise workflows](enterprise/README.md)
 and its executable Git and jj command lanes.
+
+For realistic history shapes, continue with
+[The jj world on real repositories](11-real-repository-world.md). It imports
+pinned public history into local Forgejo after removing the source push path.

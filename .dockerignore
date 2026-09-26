@@ -7,3 +7,5 @@ artifacts
 .ruff_cache
 
 .jj
+
+.real-repos/

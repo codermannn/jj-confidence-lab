@@ -73,6 +73,10 @@ Continue with [Enterprise workflows](docs/enterprise/README.md) for paired Git/j
 lessons on trunk-based delivery, stacked reviews, release branches, GitFlow,
 two remotes, and deployment promotion.
 
+Then use [real-repository rehearsals](docs/11-real-repository-world.md) to run
+jj stacks, multi-parent integration, and parallel workspaces on pinned Flask,
+bat, and GitHub CLI histories owned by the local Forgejo server.
+
 ### 5. Confirm the complete lab — host
 
 ```sh
