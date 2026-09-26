@@ -51,6 +51,27 @@ def wait_pr(c: Context, *, head: str | None = None, mergeable: bool = False, mer
         time.sleep(0.25)
 
 
+def wait_published(api: Forgejo, route: str, expected: dict[str, str]):
+    """Wait for Forgejo's API view of Git pushes before creating a PR."""
+    deadline = time.monotonic() + 20
+    while True:
+        try:
+            repo = api.request("GET", route)
+            ready = not repo["empty"]
+            for branch, commit in expected.items():
+                observed = api.request("GET", route + "/branches/" + branch)
+                ready = ready and observed["commit"]["id"] == commit
+            if ready:
+                return
+        except ForgejoAPIError as exc:
+            # Only missing refs are transient here; auth/server failures must surface.
+            if exc.status != 404:
+                raise
+        if time.monotonic() >= deadline:
+            raise LabError("Forgejo did not expose the pushed branches in 20s.")
+        time.sleep(0.25)
+
+
 def lifecycle(c: Context):
     a, b = c.alice, c.bob
     api = c.values["api"]
@@ -59,6 +80,11 @@ def lifecycle(c: Context):
     a.jj("bookmark", "create", "feature", "-r", "@")
     alice.jj("push", "--bookmark", "feature")
     published = c.capture("published")
+    wait_published(
+        api,
+        route,
+        {"main": alice.refs()["refs/heads/main"], "feature": published.working_copy.commit_id},
+    )
     pr = api.request(
         "POST",
         route + "/pulls",
